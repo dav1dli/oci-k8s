@@ -45,7 +45,11 @@ Use OCI Logging and Monitoring services
 * Only one LB in free tier
 
 # Setup
-Setup OCI credentials: `oci setup config`
+It is not neccessary to setup local oci cli - there is Oracle Cloud Shell in Console which is already set up. It runs on Oracle Linux 8. 
+It provides 5GB storage and preinstalled with tools like kubectl, helm, terraform.
+
+* Install on Mac OS: `brew install oci-cli`
+* Setup OCI credentials: `oci setup config`
 
 Update the configuration with tenancy, user OCIDs, and fingerprint from OCI console.
 
@@ -55,7 +59,7 @@ Find Linux image: `oci compute image list --compartment-id <compartment_ocid> --
 
 Run terraform:
 ```
-terraform init
+terraform init -var-file=./config/uk-south/terraform.tfvars
 terraform plan
 terraform apply
 ```
