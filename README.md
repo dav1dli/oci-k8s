@@ -44,26 +44,4 @@ Use OCI Logging and Monitoring services
 * LB is limited to 10Mbps bandwidth
 * Only one LB in free tier
 
-# Setup
-It is not neccessary to setup local oci cli - there is Oracle Cloud Shell in Console which is already set up. It runs on Oracle Linux 8. 
-It provides 5GB storage and preinstalled with tools like kubectl, helm, terraform.
-
-* Install on Mac OS: `brew install oci-cli`
-* Setup OCI credentials: `oci setup config`
-
-Update the configuration with tenancy, user OCIDs, and fingerprint from OCI console.
-
-Generate SSH keys for VM access.
-
-Find Linux image: `oci compute image list --compartment-id <compartment_ocid> --operating-system "Oracle Linux"`
-
-Run terraform:
-```
-terraform init -var-file=./config/uk-south/terraform.tfvars
-terraform plan
-terraform apply
-```
-
-Post-setup:
-* Set up kubectl
-* Install ingress controller (NGINX)
+For additional info see files in `docs` folder.
